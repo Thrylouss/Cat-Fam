@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1d3557;
+    --secondary-color: #457b9d;
+    --tertiary-color: #a8dadc;
+    --quaternary-color: #f1faee;
+    --button-color: #e63946;
+    --font-style: Montserrat;
+}
+
+body {
+    font-family: var(--font-style), serif;
+}
