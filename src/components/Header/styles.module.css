@@ -1,0 +1,95 @@
+.header {
+    width: 100%;
+    padding: 12px 24px;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--tertiary-color);
+    text-decoration: none;
+}
+
+.burger {
+    background: none;
+    border: none;
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav a:hover {
+    color: var(--tertiary-color);
+}
+
+.active {
+    color: var(--tertiary-color);
+    border-bottom: 2px solid var(--tertiary-color);
+}
+
+/* 🔻 Мобильная версия */
+@media (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1a1a1a;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 24px;
+        gap: 12px;
+        display: none;
+    }
+
+    .navOpen {
+        display: flex;
+    }
+
+    .nav a {
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+
+.logoutBtn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.logoutBtn:hover {
+    color: var(--tertiary-color);
+}

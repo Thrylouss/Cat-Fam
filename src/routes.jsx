@@ -1,28 +1,55 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage.jsx";
-import AuthPage from "./pages/AuthPage/AuthPage.jsx";
-import MatchesPage from "./pages/MatchesPage/MatchesPage.jsx";
-import ProfilePage from "./pages/ProfilePage/ProfilePage.jsx";
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "./layout/Layout";
+import HomePage from "./pages/HomePage/HomePage";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import MatchesPage from "./pages/MatchesPage/MatchesPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import NotificationsPage from "./pages/NotificationsPage/NotificationsPage.jsx";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <HomePage />, // Стартовая страница — регистрация
-    },
+const routes = createBrowserRouter([
     {
         path: "/auth",
         element: <AuthPage />,
     },
     {
-        path: "/matches",
-        element: <MatchesPage />,
-    },
-    {
-        path: "/profile",
-        element: <ProfilePage />,
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: (
+                    <ProtectedRoute>
+                        <HomePage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "matches",
+                element: (
+                    <ProtectedRoute>
+                        <MatchesPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "profile",
+                element: (
+                    <ProtectedRoute>
+                        <ProfilePage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "notifications",
+                element: (
+                    <ProtectedRoute>
+                        <NotificationsPage />
+                    </ProtectedRoute>
+                ),
+            },
+        ],
     },
 ]);
 
-export default router
-
-
+export default routes;
